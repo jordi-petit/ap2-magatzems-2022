@@ -11,11 +11,12 @@ A la figura següent, a l'esquerra es veu un magatzem amb diferents contenidors 
 
 ![BéMalament](graphics/be-malament.png)
 
-Una grua és capaç de posar, treure i moure contenidors al magatzem. Quan arribi un contenidor nou, la grua el pot agafar i deixar en alguna posició del magatzem, sempre que aquesta sigui legal. Quan calgui treure un contenidor del magatzem, la grua el pot alçar i retirar, a condició que aquest contenidor no tingui cap contenidor damunt seu. La grua també pot moure contenidors dins del magatzem: aixecant-lo primer i deixant-lo després en un altre lloc. Cada acció de la grua (posar, treure o moure) triga una unitat de temps.
+Una grua és capaç de posar, treure i moure contenidors al magatzem. Quan arribi un contenidor nou, la grua el pot agafar i deixar en alguna posició del magatzem, sempre que aquesta sigui legal. Quan calgui treure un contenidor del magatzem, la grua el pot alçar i retirar, a condició que aquest contenidor no tingui cap contenidor damunt seu. La grua també pot moure contenidors dins del magatzem: aixecant-lo primer i deixant-lo després en un altre lloc. Cada acció de la grua (posar, treure o moure) triga exactament una unitat de temps (per exemple, un minut).
 
 Els contenidors arriben seqüencialment a les portes del magatzem. Des del moment que arriba un contenidor fins que arriba el següent, la grua pot anar fent accions, inclosa la d'afegir el contenidor al magatzem. Quan un nou contenidor arriba, els anteriors ja no es poden afegir mai més.
 
-Cada contenidor té un valor associat. Ara bé, aquest valor només serà guanyat pel magatzem si aquest contenidor és enmagatzemat i extret dins del seu intèrval de temps prescrit. Sempre es poden treure contenidors del magatzem (i aquests no es poden tornar a agafar mai més), però només els que surtin dins de l'interval de temps prescrit comportaran un benefici.
+Cada contenidor té doncs un temps d'arribada a l'entrada del magatzem (per exemple, les 10:30) i s'hi estarà fins que sigui ammagatzemat o que arribi el proper contenidor (per exemple, a les 11:35). A més, cada contenidor també té un periòde de lliurament (per exemple, entre les 12:05 i les 13:00) i
+un valor econònic associat. Aquest valor només serà guanyat pel magatzem si aquest contenidor és enmagatzemat i extret dins del seu intèrval de lliurament. Sempre es poden treure contenidors del magatzem (i aquests no es poden tornar a agafar mai més), però només els que surtin dins de l'interval de lliurament comportaran un benefici.
 
 Per tal de guanyar tants diners com sigui possible, el director del magatzem us ha contractat per tal que dissenyeu i implementeu estratègies per gestionar el magatzem. Heu de decidir doncs quins contenidors entrar o no al magatzem i quan fer-ho, quins contenidors treure del magatzem i quan fer-ho, i com anar reorganitzant els contenidors dins del magatzem. La vostra estratègia serà provada tot simulant-la amb unes dades d'entrada públiques i privades. Les privades tindran unes característiques semblants a les públiques.
 
@@ -49,6 +50,8 @@ L'estratègia funciona de la forma següent:
     - Si no es pot fer cap acció, es perd aquella unitat de temps.
 
 3. Si encara queda temps, es torna al pas 2.
+
+Podeu veure una execució d'aquesta estratègia a [YouTube](https://youtu.be/kdNeYi99qjo).
 
 
 ## L'estratègia experta
