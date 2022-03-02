@@ -186,18 +186,18 @@ La funció `read_containers` ja se us dóna implementada i retorna la llista de 
 def read_containers(path: str) -> list[Container]:
 ```
 
-El format d'aquest fitxer és senzill: a cada línia es dóna la descripció d'un contenidor amb els seus atributs: identificador, mida, valor, arribada (start i end), sortida (start i end).
+El format d'aquest fitxer és senzill: a cada línia es dóna la descripció d'un contenidor amb els seus atributs: identificador, mida, valor, període d'arribada (start i end), període de lliurament (start i end).
 Aquest és un exemple de fitxer de contenidors:
 
 ```
-0 3 3 0 21 102 283
-1 3 8 21 28 295 521
-2 1 1 28 29 32 127
-3 6 28 29 40 186 476
-4 6 5 40 75 131 314
+10 3 3 0 21 102 283
+21 3 8 21 28 295 521
+23 1 1 28 29 32 127
+13 6 28 29 40 186 476
+11 6 5 40 75 131 314
 ```
 
-Tots els identificadors són diferents (però no necessàriament seqüencials).
+Tots els identificadors són diferents. Fixeu-vos que el perióde d'arribada acaba quan comença el perióde d'arribada del següent contenidor. En aquest exemple, la simulació acaba al temps 74 (inclòs).
 
 ### Logger
 
