@@ -29,7 +29,7 @@ class Container:
     size: int
     value: int
     arrival: TimeRange
-    exit_by: TimeRange
+    delivery: TimeRange
 
 
 class Store:
@@ -133,8 +133,8 @@ def read_containers(path: str) -> list[Container]:
     with open(path, 'r') as file:
         containers: list[Container] = []
         for line in file:
-            identifier, size, value, arrival_start, arrival_end, exit_by_start, exit_by_end = map(int, line.split())
-            container = Container(identifier, size, value, TimeRange(arrival_start, arrival_end), TimeRange(exit_by_start, exit_by_end))
+            identifier, size, value, arrival_start, arrival_end, delivery_start, delivery_end = map(int, line.split())
+            container = Container(identifier, size, value, TimeRange(arrival_start, arrival_end), TimeRange(delivery_start, delivery_end))
             containers.append(container)
         return containers
 
@@ -184,7 +184,7 @@ def check_and_show(containers_path: str, log_path: str, stdscr: Optional[curses.
             identifier = int(tokens[2])
             container = containers_map[identifier]
             store.remove(container)
-            if container.exit_by.start <= time < container.exit_by.end:
+            if container.delivery.start <= time < container.delivery.end:
                 store.add_cash(container.value)
 
         elif what == "MOVE":

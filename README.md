@@ -15,7 +15,7 @@ Una grua és capaç de posar, treure i moure contenidors al magatzem. Quan arrib
 
 Els contenidors arriben seqüencialment a les portes del magatzem. Des del moment que arriba un contenidor fins que arriba el següent, la grua pot anar fent accions, inclosa la d'afegir el contenidor al magatzem. Quan un nou contenidor arriba, els anteriors ja no es poden afegir mai més.
 
-Cada contenidor té doncs un temps d'arribada a l'entrada del magatzem (per exemple, les 10:30) i s'hi estarà fins que sigui ammagatzemat o que arribi el proper contenidor (per exemple, a les 11:35). A més, cada contenidor també té un periòde de lliurament (per exemple, entre les 12:05 i les 13:00) i
+Cada contenidor té doncs un temps d'arribada a l'entrada del magatzem (per exemple, les 10:30) i s'hi estarà fins que sigui ammagatzemat o que arribi el proper contenidor (per exemple, a les 11:35). A més, cada contenidor també té un període de lliurament (per exemple, entre les 12:05 i les 13:00) i
 un valor econònic associat. Aquest valor només serà guanyat pel magatzem si aquest contenidor és enmagatzemat i extret dins del seu intèrval de lliurament. Sempre es poden treure contenidors del magatzem (i aquests no es poden tornar a agafar mai més), però només els que surtin dins de l'interval de lliurament comportaran un benefici.
 
 Per tal de guanyar tants diners com sigui possible, el director del magatzem us ha contractat per tal que dissenyeu i implementeu estratègies per gestionar el magatzem. Heu de decidir doncs quins contenidors entrar o no al magatzem i quan fer-ho, quins contenidors treure del magatzem i quan fer-ho, i com anar reorganitzant els contenidors dins del magatzem. La vostra estratègia serà provada tot simulant-la amb unes dades d'entrada públiques i privades. Les privades tindran unes característiques semblants a les públiques.
@@ -133,7 +133,7 @@ class TimeRange:
 
 ### Container
 
-L'estructura `Container` representa contenidors. N'enmagatzema el seu identificador, la seva amplada, el seu valor, el seu intèrval d'arribada i el seu intèrval de sortida:
+L'estructura `Container` representa contenidors. N'enmagatzema el seu identificador, la seva amplada, el seu valor, el seu període d'arribada i el seu període de lliurament:
 
 ```python3
 @dataclass
@@ -142,7 +142,7 @@ class Container:
     size: int
     value: int
     arrival: TimeRange
-    exit_by: TimeRange
+    delivery: TimeRange
 ```
 
 Segurament voldreu afegir-li altres mètodes, per exemple, per saber si
