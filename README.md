@@ -93,9 +93,9 @@ Per als tres mòduls, ja us donem un esquelet amb la interfície que haureu de s
 
 Aquests són els fitxers de l'esquelet:
 
-- [store.py](template/store.py)
-- [simple.py](template/simple.py)
-- [expert.py](template/expert.py)
+- [store.py](templates/store.py)
+- [simple.py](templates/simple.py)
+- [expert.py](templates/expert.py)
 
 
 ## El mòdul `store.py`
