@@ -251,7 +251,7 @@ El `main` també inclou unes instruccions necessàries per inicialitzar la llibr
 
 ## El mòdul `expert.py`
 
-El mòdul `expert.py` és exactament igual que el `simple.py`, tret que ha d'implementar la vostra estratègia experta.
+El mòdul `expert.py` és exactament igual que el `simple.py`, tret que ha d'implementar la vostra estratègia experta. Expliqueu en un comentari inicial el funcionament i elements més importants de la vostra estratègia i les seves raons.
 
 
 ## Consells
