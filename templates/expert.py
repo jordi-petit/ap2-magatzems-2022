@@ -13,14 +13,11 @@ class Strategy:
 
     """Implementation of the expert strategy."""
 
-    def __init__(self, width: int, log_path: str):
-        pass
+    def __init__(self, width: int, log_path: str): ...
 
-    def cash(self) -> int:
-        pass
+    def cash(self) -> int: ...
 
-    def exec(self, c: Container):
-        pass
+    def exec(self, c: Container): ...
 
 
 def init_curses():

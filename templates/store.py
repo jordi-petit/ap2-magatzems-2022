@@ -34,48 +34,34 @@ class Container:
 
 class Store:
 
-    def __init__(self, width: int):
-        pass
-
-    def width(self) -> int:
-        pass
-
-    def height(self) -> int:
-        pass
-
-    def cash(self) -> int:
-        pass
-
-    def add_cash(self, amount: int) -> None:
-        pass
-
-    def add(self, c: Container, p: Position) -> None:
-        pass
-
-    def remove(self, c: Container) -> None:
-        pass
-
-    def move(self, c: Container, p: Position) -> None:
-        pass
-
-    def containers(self) -> list[Container]:
-        pass
-
-    def removable_containers(self) -> list[Container]:
-        pass
-
-    def top_container(self, p: Position) -> Optional[Container]:
-        pass
-
-    def location(self, c: Container) -> Location:
-        pass
-
-    def can_add(self, c: Container, p: Position) -> bool:
-        pass
-
-    def can_remove(self, c: Container) -> bool:
-        pass
-
+    def __init__(self, width: int): ...
+    
+    def width(self) -> int: ...
+    
+    def height(self) -> int: ...
+    
+    def cash(self) -> int: ...
+    
+    def add_cash(self, amount: int) -> None: ...
+    
+    def add(self, c: Container, p: Position) -> None: ...
+    
+    def remove(self, c: Container) -> None: ...
+    
+    def move(self, c: Container, p: Position) -> None: ...
+    
+    def containers(self) -> list[Container]: ...
+    
+    def removable_containers(self) -> list[Container]: ...
+    
+    def top_container(self, p: Position) -> Optional[Container]: ...
+    
+    def location(self, c: Container) -> Location: ...
+    
+    def can_add(self, c: Container, p: Position) -> bool: ...
+    
+    def can_remove(self, c: Container) -> bool: ...
+    
     def write(self, stdscr: curses.window, caption: str = ''):
 
         maximum = 15  # maximum number of rows to write

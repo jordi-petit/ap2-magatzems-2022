@@ -5,7 +5,7 @@
 
 ## Introducció
 
-Ens trobem en un magatzem de contenidors. Els contenidors són tots de la mateixa alçada i de la mateixa fondària però tenen amplades diferents: les amplades possibles són 1, 2 3 o 4 unitats. El magatzem  enmagatzema els contenidors en una única fila, d'una amplada limitada, típicament de 20 a 30 unitats d'amplada. Els contenidors es poden emmagatzemar els uns damunt dels altres, amb una alçada arbitràriament gran. Però per raons de pes, seguretat i estructura, cada contenidor ha de reposar completament damunt d'altres contenidors: no pot haver-hi cap forat a sota.
+Ens trobem en un magatzem de contenidors. Els contenidors són tots de la mateixa alçada i de la mateixa fondària però tenen amplades diferents: les amplades possibles són 1, 2 3 o 4 unitats. El magatzem  emmagatzema els contenidors en una única fila, d'una amplada limitada, típicament de 20 a 30 unitats d'amplada. Els contenidors es poden emmagatzemar els uns damunt dels altres, amb una alçada arbitràriament gran. Però per raons de pes, seguretat i estructura, cada contenidor ha de reposar completament damunt d'altres contenidors: no pot haver-hi cap forat a sota.
 
 A la figura següent, a l'esquerra es veu un magatzem amb diferents contenidors ben col·locats, a la dreta un magatzem amb tres contenidors mal col·locats.
 
@@ -15,8 +15,8 @@ Una grua és capaç de posar, treure i moure contenidors al magatzem. Quan arrib
 
 Els contenidors arriben seqüencialment a les portes del magatzem. Des del moment que arriba un contenidor fins que arriba el següent, la grua pot anar fent accions, inclosa la d'afegir el contenidor al magatzem. Quan un nou contenidor arriba, els anteriors ja no es poden afegir mai més.
 
-Cada contenidor té doncs un temps d'arribada a l'entrada del magatzem (per exemple, les 10:30) i s'hi estarà fins que sigui ammagatzemat o que arribi el proper contenidor (per exemple, a les 11:35). A més, cada contenidor també té un període de lliurament (per exemple, entre les 12:05 i les 13:00) i
-un valor econònic associat. Aquest valor només serà guanyat pel magatzem si aquest contenidor és enmagatzemat i extret dins del seu intèrval de lliurament. Sempre es poden treure contenidors del magatzem (i aquests no es poden tornar a agafar mai més), però només els que surtin dins de l'interval de lliurament comportaran un benefici.
+Cada contenidor té doncs un temps d'arribada a l'entrada del magatzem (per exemple, les 10:30) i s'hi estarà fins que sigui emmagatzemat o que arribi el proper contenidor (per exemple, a les 11:35). A més, cada contenidor també té un període de lliurament (per exemple, entre les 12:05 i les 13:00) i
+un valor econòmic associat. Aquest valor només serà guanyat pel magatzem si aquest contenidor és emmagatzemat i extret dins del seu intèrval de lliurament. Sempre es poden treure contenidors del magatzem (i aquests no es poden tornar a agafar mai més), però només els que surtin dins de l'interval de lliurament comportaran un benefici.
 
 Per tal de guanyar tants diners com sigui possible, el director del magatzem us ha contractat per tal que dissenyeu i implementeu estratègies per gestionar el magatzem. Heu de decidir doncs quins contenidors entrar o no al magatzem i quan fer-ho, quins contenidors treure del magatzem i quan fer-ho, i com anar reorganitzant els contenidors dins del magatzem. La vostra estratègia serà provada tot simulant-la amb unes dades d'entrada públiques i privades. Les privades tindran unes característiques semblants a les públiques.
 
@@ -133,7 +133,7 @@ class TimeRange:
 
 ### Container
 
-L'estructura `Container` representa contenidors. N'enmagatzema el seu identificador, la seva amplada, el seu valor, el seu període d'arribada i el seu període de lliurament:
+L'estructura `Container` representa contenidors. N'emmagatzema el seu identificador, la seva amplada, el seu valor, el seu període d'arribada i el seu període de lliurament:
 
 ```python3
 @dataclass
@@ -154,21 +154,21 @@ La class `Store` representa un magatzem. Els magatzems es creen amb una amplada 
 
 ```python3
 class Store:
-    def __init__(self, width: int): pass
-    def width(self) -> int: pass
-    def height(self) -> int: pass
-    def cash(self) -> int: pass
-    def add_cash(self, amount: int) -> None: pass
-    def add(self, c: Container, p: Position) -> None: pass
-    def remove(self, c: Container) -> None: pass
-    def move(self, c: Container, p: Position) -> None: pass
-    def containers(self) -> list[Container]: pass
-    def removable_containers(self) -> list[Container]: pass
-    def top_container(self, p: Position) -> Optional[Container]: pass
-    def location(self, c: Container) -> Location: pass
-    def can_add(self, c: Container, p: Position) -> bool: pass
-    def can_remove(self, c: Container) -> bool: pass
-    def write(self, stdscr: curses.window, caption: str = ''): pass
+    def __init__(self, width: int): ...
+    def width(self) -> int: ...
+    def height(self) -> int: ...
+    def cash(self) -> int: ...
+    def add_cash(self, amount: int) -> None: ...
+    def add(self, c: Container, p: Position) -> None: ...
+    def remove(self, c: Container) -> None: ...
+    def move(self, c: Container, p: Position) -> None: ...
+    def containers(self) -> list[Container]: ...
+    def removable_containers(self) -> list[Container]: ...
+    def top_container(self, p: Position) -> Optional[Container]: ...
+    def location(self, c: Container) -> Location: ...
+    def can_add(self, c: Container, p: Position) -> bool: ...
+    def can_remove(self, c: Container) -> bool: ...
+    def write(self, stdscr: curses.window, caption: str = ''): ...
 ```
 
 El significat de cada mètode hauria de ser prou clar pel seu nom i paràmetres, però és necessari que el feu explícit amb una especificació completa usant *docstrings*. Tots els mètodes haurien de llançar una excepció si s'executen amb paràmetres invàlids. Deixeu-ho també especificat.
@@ -237,9 +237,9 @@ El mòdul `simple.py` conté el codi de l'estratègia simple. Aquesta es realitz
 
 ```python3
 class Strategy:
-    def __init__(self, width: int, log_path: str): pass
-    def cash(self) -> int: pass
-    def exec(self, c: Container): pass
+    def __init__(self, width: int, log_path: str): ...
+    def cash(self) -> int: ...
+    def exec(self, c: Container): ...
 ```
 
 Cada estratègia es crea amb una amplada del magatzem i un nom de fitxer on es registraran les accions que la estretègia aplica al magatzem.
