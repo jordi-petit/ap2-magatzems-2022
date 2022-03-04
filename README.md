@@ -282,4 +282,4 @@ No espereu al darrer moment per fer el lliurement. De debò. No, no és bona ide
 
 Jordi Petit, Emma Rollón, Jordi Cortadella
 
-Universitat Politècnica de Cataluna, 2022
+Universitat Politècnica de Catalunya, 2022
