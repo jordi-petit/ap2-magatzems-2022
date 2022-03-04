@@ -173,6 +173,8 @@ class Store:
 
 El significat de cada mètode hauria de ser prou clar pel seu nom i paràmetres, però és necessari que el feu explícit amb una especificació completa usant *docstrings*. Tots els mètodes haurien de llançar una excepció si s'executen amb paràmetres invàlids. Deixeu-ho també especificat.
 
+Quan implementeu la classe `Store`, suposeu que l'amplada i l'alçada del magatzem poden ser molt grans. Això afectarà la tria de les estructures de dades subjacents.
+
 El mètode `write` ja se us dóna implementat usant la resta d'operacions públiques. Aquest utilitza la llibreria `curses` per poder escriure en coloraines en un terminal.
 
 Fixeu-vos que l'`Store` no té coneixement del pas del temps.
