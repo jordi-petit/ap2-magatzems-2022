@@ -259,6 +259,11 @@ El `main` també inclou unes instruccions necessàries per inicialitzar la llibr
 El mòdul `expert.py` és exactament igual que el `simple.py`, tret que ha d'implementar la vostra estratègia experta. Expliqueu en un comentari inicial el funcionament i elements més importants de la vostra estratègia i les seves raons.
 
 
+## Jocs de proves
+
+Al directori [tests](tests) teniu els jocs de proves públics (llistes de contenidors). Ara mateix només n'hi ha un ([simple.txt](tests/simple.txt)) amb 100 contenidors, però aviat en posarem un de més llarg, semblant al privat que es publicarà després del lliurament.
+
+
 ## Consells
 
 Per realitzar el treball us recomanem seguir aquests passos:
