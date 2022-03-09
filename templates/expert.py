@@ -1,5 +1,5 @@
 """
-Template file for expert.py module. 
+Template file for expert.py module.
 """
 
 
@@ -44,9 +44,9 @@ def main(stdscr: curses.window):
 
     init_curses()
 
-    containers_path = sys.argv[0]
-    log_path = sys.argv[1]
-    width = int(sys.argv[2])
+    containers_path = sys.argv[1]
+    log_path = sys.argv[2]
+    width = int(sys.argv[3])
 
     execute_strategy(containers_path, log_path, width)
     check_and_show(containers_path, log_path, stdscr)
