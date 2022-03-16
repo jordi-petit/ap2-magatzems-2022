@@ -1,9 +1,9 @@
 """
-Template file for store.py module. 
+Template file for store.py module.
 """
 
 from dataclasses import dataclass
-from typing import Optional, TextIO
+from typing import Optional, TextIO, List, Tuple
 import curses
 import time
 
@@ -14,7 +14,7 @@ TimeStamp = int
 Position = int
 
 
-Location = tuple[int, int]
+Location = Tuple[int, int]
 
 
 @dataclass
@@ -35,33 +35,33 @@ class Container:
 class Store:
 
     def __init__(self, width: int): ...
-    
+
     def width(self) -> int: ...
-    
+
     def height(self) -> int: ...
-    
+
     def cash(self) -> int: ...
-    
+
     def add_cash(self, amount: int) -> None: ...
-    
+
     def add(self, c: Container, p: Position) -> None: ...
-    
+
     def remove(self, c: Container) -> None: ...
-    
+
     def move(self, c: Container, p: Position) -> None: ...
-    
-    def containers(self) -> list[Container]: ...
-    
-    def removable_containers(self) -> list[Container]: ...
-    
+
+    def containers(self) -> List[Container]: ...
+
+    def removable_containers(self) -> List[Container]: ...
+
     def top_container(self, p: Position) -> Optional[Container]: ...
-    
+
     def location(self, c: Container) -> Location: ...
-    
+
     def can_add(self, c: Container, p: Position) -> bool: ...
-    
+
     def can_remove(self, c: Container) -> bool: ...
-    
+
     def write(self, stdscr: curses.window, caption: str = ''):
 
         maximum = 15  # maximum number of rows to write
@@ -83,7 +83,8 @@ class Store:
             if row < maximum:
                 p = 1 + c.identifier * 764351 % 250  # some random color depending on the identifier of the container
                 stdscr.addstr(maximum - row + 2, 2 * column, '  ' * c.size, curses.color_pair(p))
-                stdscr.addstr(maximum - row + 2, 2 * column, str(c.identifier % 100), curses.color_pair(p))
+                stdscr.addstr(maximum - row + 2, 2 * column,
+                              str(c.identifier % 100), curses.color_pair(p))
 
         # done
         stdscr.refresh()
@@ -113,14 +114,16 @@ class Logger:
         print(t, 'CASH', cash, file=self._file)
 
 
-def read_containers(path: str) -> list[Container]:
+def read_containers(path: str) -> List[Container]:
     """Returns a list of containers read from a file at path."""
 
     with open(path, 'r') as file:
-        containers: list[Container] = []
+        containers: List[Container] = []
         for line in file:
-            identifier, size, value, arrival_start, arrival_end, delivery_start, delivery_end = map(int, line.split())
-            container = Container(identifier, size, value, TimeRange(arrival_start, arrival_end), TimeRange(delivery_start, delivery_end))
+            identifier, size, value, arrival_start, arrival_end, delivery_start, delivery_end = map(
+                int, line.split())
+            container = Container(identifier, size, value, TimeRange(
+                arrival_start, arrival_end), TimeRange(delivery_start, delivery_end))
             containers.append(container)
         return containers
 
